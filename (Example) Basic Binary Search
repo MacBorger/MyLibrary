@@ -1,1 +1,38 @@
+public class BinarySearch {
+    public static int binarySearch(int[] inputArray, int inputTarget) {
 
+        int leftBound = 0;
+        int rightBound = inputArray.length - 1;
+
+        while (leftBound <= rightBound) {
+
+            int middleIndex = leftBound + ((rightBound - leftBound) / 2);
+
+            if (inputTarget == inputArray[middleIndex]) {
+                return middleIndex; // Return Middle Index when Found
+            }
+
+            if (inputTarget > inputArray[middleIndex]) {
+                leftBound = middleIndex + 1; // Discard Left-Half of Array
+            } else if (inputTarget < inputArray[middleIndex]) {
+                rightBound = middleIndex - 1; // Discard Right-Half of Array
+            }
+        }
+        return -1; // If Target is Not Found
+    }
+
+    public static void main(String[] args) {
+
+        int[] numberArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int numberTarget = 10;
+
+        int solutionIndex = binarySearch(numberArray, numberTarget);
+
+        if (solutionIndex != -1) { // If Target is Found
+            System.out.println("Number Found at Index " + solutionIndex);
+        } else { // If Target is Not Found
+            System.out.println("Number Not Found in Array");
+        }
+
+    }
+}
