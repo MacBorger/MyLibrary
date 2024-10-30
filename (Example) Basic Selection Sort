@@ -1,1 +1,38 @@
+public class SelectionSort {
+    public static void selectionSort(int[] inputArray) {
 
+        int smallestIndex;
+        int temporaryNumber;
+
+        for (int i = 0; i < inputArray.length - 1; ++i) {
+            smallestIndex = i; // Represents Number to be Compared
+            for (int j = i + 1; j < inputArray.length; ++j) {
+                if (inputArray[j] < inputArray[smallestIndex]) {
+                    smallestIndex = j; // If Smaller Number is Found
+                }
+            }
+            temporaryNumber = inputArray[i]; // Temporarily Store Outer Loop's Number
+            inputArray[i] = inputArray[smallestIndex]; // Reassign with Smallest Number
+            inputArray[smallestIndex] = temporaryNumber; // Reassign Outer Loop's Number
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int[] numberArray = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+
+        System.out.print("Unsorted Array: ");
+        for (int i = 0; i < numberArray.length; i++) {
+            System.out.print(numberArray[i] + " ");
+        }
+
+        System.out.println(); // Print a New Line for Arrays
+        selectionSort(numberArray); // Pass Array by Reference
+
+        System.out.print("Sorted Array: ");
+        for (int i = 0; i < numberArray.length; i++) {
+            System.out.print(numberArray[i] + " ");
+        }
+
+    }
+}
