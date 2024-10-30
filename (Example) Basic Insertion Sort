@@ -1,1 +1,35 @@
+public class InsertionSort {
+    public static void insertionSort(int[] inputArray) {
 
+        int temporaryNumber;
+
+        for (int i = 1; i < inputArray.length; ++i) {
+            int j = i;
+            while ((j > 0) && (inputArray[j] < inputArray[j - 1])) {
+                temporaryNumber = inputArray[j]; // Temporarily Store Outer Loop's Number
+                inputArray[j] = inputArray[j - 1]; // Reassign Right Number with Left Number
+                inputArray[j - 1] = temporaryNumber; // Reassign Outer Loop's Number
+                --j; // Decrementing Ensures that Every Index Before 'i' is Sorted
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int[] numberArray = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+
+        System.out.print("Unsorted Array: ");
+        for (int i = 0; i < numberArray.length; i++) {
+            System.out.print(numberArray[i] + " ");
+        }
+
+        System.out.println(); // Print a New Line for Arrays
+        insertionSort(numberArray); // Pass Array by Reference
+
+        System.out.print("Sorted Array: ");
+        for (int i = 0; i < numberArray.length; i++) {
+            System.out.print(numberArray[i] + " ");
+        }
+
+    }
+}
