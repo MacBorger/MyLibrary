@@ -1,1 +1,55 @@
+public class QuickSort {
+    public static void quickSort(int[] inputArray, int leftBound, int rightBound) {
 
+        if (leftBound < rightBound) {
+
+            int pivotIndex = partitionArray(inputArray, leftBound, rightBound);
+
+            quickSort(inputArray, leftBound, pivotIndex - 1); // Sort to the Left of Pivot
+            quickSort(inputArray, pivotIndex + 1, rightBound); // Sort to the Right of Pivot
+        }
+        
+    }
+
+    public static int partitionArray(int[] inputArray, int leftBound, int rightBound) {
+
+        int pivotNumber = inputArray[rightBound]; // Pivot Number is the Last Element
+        int i = leftBound - 1;
+
+        for (int j = leftBound; j < rightBound; j++) {
+            if (inputArray[j] <= pivotNumber) { // If Number is Less than or Equal to Pivot
+                i++;
+                swapNumbers(inputArray, i, j); // Moves Smaller Elements to the Left of Pivot
+            }
+        }
+        swapNumbers(inputArray, i + 1, rightBound);
+        return i + 1;
+    }
+
+    public static void swapNumbers(int[] inputArray, int indexOne, int indexTwo) {
+
+        int temporaryNumber = inputArray[indexOne];
+        inputArray[indexOne] = inputArray[indexTwo];
+        inputArray[indexTwo] = temporaryNumber;
+
+    }
+
+    public static void main(String[] args) {
+
+        int[] numberArray = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+
+        System.out.print("Unsorted Array: ");
+        for (int i = 0; i < numberArray.length; i++) {
+            System.out.print(numberArray[i] + " ");
+        }
+
+        System.out.println();
+        quickSort(numberArray, 0, numberArray.length - 1); 
+
+        System.out.print("Sorted Array: ");
+        for (int i = 0; i < numberArray.length; i++) {
+            System.out.print(numberArray[i] + " ");
+        }
+
+    }
+}
