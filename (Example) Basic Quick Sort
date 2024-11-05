@@ -8,7 +8,6 @@ public class QuickSort {
             quickSort(inputArray, leftBound, pivotIndex - 1); // Sort to the Left of Pivot
             quickSort(inputArray, pivotIndex + 1, rightBound); // Sort to the Right of Pivot
         }
-        
     }
 
     public static int partitionArray(int[] inputArray, int leftBound, int rightBound) {
