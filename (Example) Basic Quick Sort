@@ -5,8 +5,8 @@ public class QuickSort {
 
             int pivotIndex = partitionArray(inputArray, leftBound, rightBound);
 
-            quickSort(inputArray, leftBound, pivotIndex - 1); // Sort to the Left of Pivot
-            quickSort(inputArray, pivotIndex + 1, rightBound); // Sort to the Right of Pivot
+            quickSort(inputArray, leftBound, pivotIndex - 1); 
+            quickSort(inputArray, pivotIndex + 1, rightBound); 
         }
     }
 
