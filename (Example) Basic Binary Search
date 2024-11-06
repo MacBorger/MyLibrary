@@ -9,16 +9,16 @@ public class BinarySearch {
             int middleIndex = leftBound + ((rightBound - leftBound) / 2);
 
             if (inputTarget == inputArray[middleIndex]) {
-                return middleIndex; // Return Middle Index when Found
+                return middleIndex;
             }
 
             if (inputTarget > inputArray[middleIndex]) {
-                leftBound = middleIndex + 1; // Discard Left-Half of Array
+                leftBound = middleIndex + 1;
             } else if (inputTarget < inputArray[middleIndex]) {
-                rightBound = middleIndex - 1; // Discard Right-Half of Array
+                rightBound = middleIndex - 1; 
             }
         }
-        return -1; // If Target is Not Found
+        return -1; 
     }
 
     public static void main(String[] args) {
@@ -33,6 +33,5 @@ public class BinarySearch {
         } else { 
             System.out.println("Number Not Found in Array");
         }
-
     }
 }
