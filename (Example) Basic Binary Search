@@ -28,9 +28,9 @@ public class BinarySearch {
 
         int solutionIndex = binarySearch(numberArray, numberTarget);
 
-        if (solutionIndex != -1) { // If Target is Found
+        if (solutionIndex != -1) {
             System.out.println("Number Found at Index " + solutionIndex);
-        } else { // If Target is Not Found
+        } else { 
             System.out.println("Number Not Found in Array");
         }
 
