@@ -3,10 +3,10 @@ public class LinearSearch {
 
         for (int i = 0; i < inputArray.length; i++) {
             if (inputArray[i] == inputTarget) {
-                return i; // If Target is Found
+                return i; 
             }
         }
-        return -1; // If Target is Not Found
+        return -1;
     }
 
     public static void main(String[] args) {
@@ -16,9 +16,9 @@ public class LinearSearch {
 
         int solutionIndex = linearSearch(numberArray, numberTarget);
 
-        if (solutionIndex != -1) { // If Target is Found
+        if (solutionIndex != -1) { 
             System.out.println("Number Found at Index " + solutionIndex);
-        } else { // If Target is Not Found
+        } else { 
             System.out.println("Number Not Found in Array");
         }
 
