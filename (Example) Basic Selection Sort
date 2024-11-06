@@ -11,9 +11,9 @@ public class SelectionSort {
                     smallestIndex = j; // If Smaller Number is Found
                 }
             }
-            temporaryNumber = inputArray[i]; // Temporarily Store Outer Loop's Number
-            inputArray[i] = inputArray[smallestIndex]; // Reassign with Smallest Number
-            inputArray[smallestIndex] = temporaryNumber; // Reassign Outer Loop's Number
+            temporaryNumber = inputArray[i]; 
+            inputArray[i] = inputArray[smallestIndex];
+            inputArray[smallestIndex] = temporaryNumber; 
         }
     }
 
@@ -33,6 +33,5 @@ public class SelectionSort {
         for (int i = 0; i < numberArray.length; i++) {
             System.out.print(numberArray[i] + " ");
         }
-
     }
 }
