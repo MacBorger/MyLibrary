@@ -21,6 +21,5 @@ public class LinearSearch {
         } else { 
             System.out.println("Number Not Found in Array");
         }
-
     }
 }
