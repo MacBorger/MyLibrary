@@ -1,1 +1,67 @@
+public class MergeSort {
+    public static void mergeSort(int[] inputArray) {
 
+        if (inputArray.length < 2) {
+            return;
+        }
+
+        int middleIndex = (inputArray.length) / 2;
+        int[] leftIndex = new int[middleIndex];
+        int[] rightIndex = new int[inputArray.length - middleIndex];
+
+        System.arraycopy(inputArray, 0, leftIndex, 0, middleIndex);
+        System.arraycopy(inputArray, middleIndex, rightIndex, 0, (inputArray.length - middleIndex));
+
+        mergeSort(leftIndex);
+        mergeSort(rightIndex);
+        merge(inputArray, leftIndex, rightIndex);
+    }
+
+    public static void merge(int[] inputArray, int[] leftIndex, int[] rightIndex) {
+
+        int i = 0; // Left Array
+        int j = 0; // Right Array
+        int k = 0; // Middle Array
+
+        while ((i < leftIndex.length) && (j < rightIndex.length)) {
+            if (leftIndex[i] <= rightIndex[j]) {
+                inputArray[k] = leftIndex[i];
+                i++;
+            } else {
+                inputArray[k] = rightIndex[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < leftIndex.length) {
+            inputArray[k] = leftIndex[i];
+            i++;
+            k++;
+        }
+
+        while (j < rightIndex.length) {
+            inputArray[k] = rightIndex[j];
+            j++;
+            k++;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int[] numberArray = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+
+        System.out.print("Unsorted Array: ");
+        for (int i = 0; i < numberArray.length; i++) {
+            System.out.print(numberArray[i] + " ");
+        }
+
+        System.out.println();
+        mergeSort(numberArray);
+
+        System.out.print("Sorted Array: ");
+        for (int i = 0; i < numberArray.length; i++) {
+            System.out.print(numberArray[i] + " ");
+        }
+    }
+}
