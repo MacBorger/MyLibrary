@@ -1,0 +1,59 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Server {
+    public static void main(String[] args) throws IOException {
+
+        Socket hostSocket = null;
+        InputStreamReader streamReader = null;
+        OutputStreamWriter streamWriter = null;
+        BufferedReader bufferedReader = null;
+        BufferedWriter bufferedWriter = null;
+        ServerSocket serverSocket = null;
+
+        serverSocket = new ServerSocket(1010);
+
+        while (true) {
+            try {
+
+                hostSocket = serverSocket.accept();
+
+                streamReader = new InputStreamReader(hostSocket.getInputStream());
+                streamWriter = new OutputStreamWriter(hostSocket.getOutputStream());
+
+                bufferedReader = new BufferedReader(streamReader);
+                bufferedWriter = new BufferedWriter(streamWriter);
+
+                while (true) {
+
+                    String messageFromClient = bufferedReader.readLine();
+
+                    System.out.println("Client: " + messageFromClient);
+
+                    bufferedWriter.write("Message Received");
+                    bufferedWriter.newLine();
+                    bufferedWriter.flush();
+
+                    if (messageFromClient.equalsIgnoreCase("Goodbye")) {
+                        break;
+                    }
+                } 
+
+                hostSocket.close();
+                streamReader.close();
+                streamWriter.close();
+                bufferedReader.close();
+                bufferedWriter.close();
+                serverSocket.close();
+
+            } catch (IOException error) {
+                error.printStackTrace();
+            }
+        }
+    }
+}
