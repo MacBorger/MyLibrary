@@ -3,7 +3,7 @@ const int greenPinNumber = 3;
 const int bluePinNumber = 4;
 
 const unsigned long redTimeInterval = (1000 / 2); // 1Hz @ 500ms High, 500ms Low
-const unsigned long greenTimeInterval = (250 / 2); // 4Hz @ 125ms High, 125ms Low
+const unsigned long greenTimeInterval = (250 / 2); // 3Hz @ 125ms High, 125ms Low
 const unsigned long blueTimeInterval = (200 / 2); // 5Hz @ 100ms High, 100ms Low
 
 bool redState = LOW;
