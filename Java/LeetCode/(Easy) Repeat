@@ -1,0 +1,17 @@
+class Solution {
+    public char repeatedCharacter(String inputString) {
+        
+        // Array Stores Values as Per ASCII Value
+        boolean[] hasBeenSeen = new boolean[256];
+
+        for (int i = 0; i < inputString.length(); i++) {
+            char currentCharacter = inputString.charAt(i);
+            // Character's ASCII Value is used for Index
+            if (hasBeenSeen[currentCharacter]) {
+                return currentCharacter;
+            }
+            hasBeenSeen[currentCharacter] = true;
+        }
+        return '\0';
+    }
+}
