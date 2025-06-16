@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isPalindrome(int inputNumber) {
+        
+        String numberString = Integer.toString(inputNumber);
+        char[] numberTokens = numberString.toCharArray();
+
+        int leftIndex = 0;
+        int rightIndex = numberTokens.length - 1;
+
+        while (leftIndex < rightIndex) {
+            if (numberTokens[leftIndex] != numberTokens[rightIndex]) {
+                // "numberTokens" is not a Palindrome
+                return false;
+            }
+            leftIndex++;
+            rightIndex--;
+        }
+        // "numberTokens" is a Palindrome
+        return true;
+    }
+}
