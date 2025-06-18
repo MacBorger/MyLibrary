@@ -1,0 +1,38 @@
+class Solution {
+
+public:
+    int charToNum(char character) {
+        switch(character) {
+            case 'I':
+                return 1;
+            case 'V':
+                return 5;
+            case 'X':
+                return 10;
+            case 'L':
+                return 50;
+            case 'C':
+                return 100;
+            case 'D':
+                return 500;
+            case 'M':
+                return 1000;
+            default:
+                return 0;
+        }
+    }
+
+    int romanToInt(string number) {
+        int length = number.size();
+        int result = 0;
+
+        for (int i = 0; i < length; i++) {
+            if ((i + 1 < length) && (charToNum(number[i]) < charToNum(number[i + 1]))) {
+                result = result - charToNum(number[i]);
+            } else {
+                result = result + charToNum(number[i]);
+            }
+        }
+        return result;
+    }
+};
