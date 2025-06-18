@@ -1,0 +1,20 @@
+class Solution {
+
+public:
+    bool isPalindrome(int number) {
+        string converted = to_string(number);
+
+        int length = converted.length();
+        int right = length - 1;
+        int left = 0;
+
+        while (left < right) {
+            if (converted[left] != converted[right]) {
+                return false;
+            }
+            right--;
+            left++;
+        }
+        return true;
+    }
+};
