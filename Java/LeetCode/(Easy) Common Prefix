@@ -16,7 +16,6 @@ class Solution {
                 }
             }
         }
-        // If No Mismatch is Found
         return inputArray[0];
     }
 }
