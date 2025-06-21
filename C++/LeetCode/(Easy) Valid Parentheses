@@ -1,0 +1,27 @@
+class Solution {
+
+public:
+    bool isValid(string sequence) {
+        stack<char> stack;
+        for (int i = 0; i < sequence.size(); i++) {
+            char character = sequence[i];
+
+            if ((character == '(') || 
+                (character == '{') || 
+                (character == '[')) {
+                stack.push(character);
+            } else {
+                char top = stack.top();
+
+                if (((character == ')') && (top == '(')) || 
+                    ((character == '}') && (top == '{')) || 
+                    ((character == ']') && (top == '['))) {
+                    stack.pop();
+                } else {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};
