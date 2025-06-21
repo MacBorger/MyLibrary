@@ -1,6 +1,5 @@
 class Solution {
     public char repeatedCharacter(String inputString) {
-        
         // Array Stores Values as Per ASCII Value
         boolean[] hasBeenSeen = new boolean[256];
 
