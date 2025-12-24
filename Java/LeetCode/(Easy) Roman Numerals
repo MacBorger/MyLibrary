@@ -3,10 +3,8 @@ class Solution {
         int currentCount = 0;
         for (int i = 0; i < inputString.length(); i++) {
             int currentValue = getRomanValue(inputString.charAt(i));
-            // If Roman Numeral is Less Than Next, Subtract
             if ((i + 1 < inputString.length()) && (currentValue < getRomanValue(inputString.charAt(i + 1)))) {
                 currentCount -= currentValue; 
-            // Else, Roman Numeral is must be Greater, Add
             } else {
                 currentCount += currentValue; 
             }
